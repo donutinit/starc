@@ -11,7 +11,7 @@ namespace BusinessLayer
 /**
  * @brief Опции импорта
  */
-struct CORE_LIBRARY_EXPORT ImportOptions
+struct CORE_LIBRARY_EXPORT ScreenplayImportOptions
 {
     /**
      * @brief Путь файла для импорта

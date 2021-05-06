@@ -1,6 +1,6 @@
 #include "document_importer.h"
 
-#include "import_options.h"
+#include "screenlay_import_options.h"
 
 #include <format_manager.h>
 #include <format_reader.h>
@@ -252,7 +252,7 @@ static QString clearBlockText(ScreenplayParagraphType _blockType, const QString&
 
 } // namespace
 
-AbstractImporter::Documents DocumentImporter::importDocuments(const ImportOptions& _options) const
+AbstractScreenplayImporter::Documents DocumentImporter::importDocuments(const ScreenplayImportOptions& _options) const
 {
     //
     // Открываем файл
@@ -388,7 +388,7 @@ AbstractImporter::Documents DocumentImporter::importDocuments(const ImportOption
     return documents;
 }
 
-QVector<AbstractImporter::Screenplay> DocumentImporter::importScreenplays(const ImportOptions& _options) const
+QVector<AbstractScreenplayImporter::Screenplay> DocumentImporter::importScreenplays(const ScreenplayImportOptions& _options) const
 {
     if (_options.importScreenplay == false) {
         return {};

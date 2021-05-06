@@ -1,6 +1,6 @@
 #include "celtx_importer.h"
 
-#include "import_options.h"
+#include "screenlay_import_options.h"
 
 #include <qgumbodocument.h>
 #include <qgumbonode.h>
@@ -58,7 +58,7 @@ QString readScript(const QString& _filePath) {
 
 }
 
-AbstractImporter::Documents CeltxImporter::importDocuments(const ImportOptions& _options) const
+AbstractScreenplayImporter::Documents CeltxImporter::importDocuments(const ScreenplayImportOptions& _options) const
 {
     //
     // Открываем файл
@@ -133,7 +133,7 @@ AbstractImporter::Documents CeltxImporter::importDocuments(const ImportOptions& 
     return documents;
 }
 
-QVector<AbstractImporter::Screenplay> CeltxImporter::importScreenplays(const ImportOptions& _options) const
+QVector<AbstractScreenplayImporter::Screenplay> CeltxImporter::importScreenplays(const ScreenplayImportOptions& _options) const
 {
     if (_options.importScreenplay == false) {
         return {};

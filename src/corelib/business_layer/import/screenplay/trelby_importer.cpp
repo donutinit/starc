@@ -1,6 +1,6 @@
 #include "trelby_importer.h"
 
-#include "import_options.h"
+#include "screenlay_import_options.h"
 
 #include <business_layer/model/screenplay/text/screenplay_text_block_parser.h>
 #include <business_layer/model/screenplay/text/screenplay_text_model_xml.h>
@@ -18,7 +18,7 @@
 namespace BusinessLayer
 {
 
-AbstractImporter::Documents TrelbyImporter::importDocuments(const ImportOptions& _options) const
+AbstractScreenplayImporter::Documents TrelbyImporter::importDocuments(const ScreenplayImportOptions& _options) const
 {
     //
     // Открываем файл
@@ -118,7 +118,7 @@ AbstractImporter::Documents TrelbyImporter::importDocuments(const ImportOptions&
     return documents;
 }
 
-QVector<AbstractImporter::Screenplay> TrelbyImporter::importScreenplays(const ImportOptions& _options) const
+QVector<AbstractScreenplayImporter::Screenplay> TrelbyImporter::importScreenplays(const ScreenplayImportOptions& _options) const
 {
     if (_options.importScreenplay == false) {
         return {};

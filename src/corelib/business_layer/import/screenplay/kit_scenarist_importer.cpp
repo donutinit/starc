@@ -1,6 +1,6 @@
 #include "kit_scenarist_importer.h"
 
-#include "import_options.h"
+#include "screenlay_import_options.h"
 
 #include <business_layer/model/screenplay/text/screenplay_text_block_parser.h>
 #include <business_layer/model/screenplay/text/screenplay_text_model_text_item.h>
@@ -54,8 +54,8 @@ enum Type {
 /**
  * @brief Сформировать документ сценария из xml сценария КИТа
  */
-AbstractImporter::Screenplay readScreenplay(const QString& _kitScreenplayXml) {
-    AbstractImporter::Screenplay screenplay;
+AbstractScreenplayImporter::Screenplay readScreenplay(const QString& _kitScreenplayXml) {
+    AbstractScreenplayImporter::Screenplay screenplay;
 
     //
     // Читаем XML
@@ -299,7 +299,7 @@ AbstractImporter::Screenplay readScreenplay(const QString& _kitScreenplayXml) {
 
 } // namespace
 
-AbstractImporter::Documents KitScenaristImporter::importDocuments(const ImportOptions& _options) const
+AbstractScreenplayImporter::Documents KitScenaristImporter::importDocuments(const ScreenplayImportOptions& _options) const
 {
     Documents result;
 
@@ -341,7 +341,7 @@ AbstractImporter::Documents KitScenaristImporter::importDocuments(const ImportOp
     return result;
 }
 
-QVector<AbstractImporter::Screenplay> KitScenaristImporter::importScreenplays(const ImportOptions& _options) const
+QVector<AbstractScreenplayImporter::Screenplay> KitScenaristImporter::importScreenplays(const ScreenplayImportOptions& _options) const
 {
     QVector<Screenplay> result;
 

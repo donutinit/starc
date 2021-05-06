@@ -1,6 +1,6 @@
 #pragma once
 
-#include "abstract_importer.h"
+#include "abstract_screenplay_importer.h"
 
 #include <QScopedPointer>
 
@@ -11,7 +11,7 @@ namespace BusinessLayer
 /**
  * @brief Импортер сценария из файлов fountain
  */
-class CORE_LIBRARY_EXPORT FountainImporter : public AbstractImporter
+class CORE_LIBRARY_EXPORT FountainImporter : public AbstractScreenplayImporter
 {
 /*
               . .
@@ -39,12 +39,12 @@ public:
     /**
      * @brief Импорт докуметов (всех, кроме сценариев)
      */
-    Documents importDocuments(const ImportOptions& _options) const override;
+    Documents importDocuments(const ScreenplayImportOptions& _options) const override;
 
     /**
      * @brief Импортировать сценарии
      */
-    QVector<Screenplay> importScreenplays(const ImportOptions& _options) const override;
+    QVector<Screenplay> importScreenplays(const ScreenplayImportOptions& _options) const override;
 
     /**
      * @brief Импортировать сценарий из заданного текста

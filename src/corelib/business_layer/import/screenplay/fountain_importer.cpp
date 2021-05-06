@@ -1,6 +1,6 @@
 #include "fountain_importer.h"
 
-#include "import_options.h"
+#include "screenlay_import_options.h"
 
 #include <business_layer/model/screenplay/text/screenplay_text_block_parser.h>
 #include <business_layer/model/screenplay/text/screenplay_text_model_xml.h>
@@ -824,7 +824,7 @@ FountainImporter::FountainImporter()
 
 FountainImporter::~FountainImporter() = default;
 
-AbstractImporter::Documents FountainImporter::importDocuments(const ImportOptions& _options) const
+AbstractScreenplayImporter::Documents FountainImporter::importDocuments(const ScreenplayImportOptions& _options) const
 {
     //
     // Открываем файл
@@ -1047,7 +1047,7 @@ AbstractImporter::Documents FountainImporter::importDocuments(const ImportOption
     return documents;
 }
 
-QVector<AbstractImporter::Screenplay> FountainImporter::importScreenplays(const ImportOptions& _options) const
+QVector<AbstractScreenplayImporter::Screenplay> FountainImporter::importScreenplays(const ScreenplayImportOptions& _options) const
 {
     if (_options.importScreenplay == false) {
         return {};
@@ -1072,7 +1072,7 @@ QVector<AbstractImporter::Screenplay> FountainImporter::importScreenplays(const 
     return { screenplay };
 }
 
-AbstractImporter::Screenplay FountainImporter::importScreenplay(const QString& _screenplayText) const
+AbstractScreenplayImporter::Screenplay FountainImporter::importScreenplay(const QString& _screenplayText) const
 {
     if (_screenplayText.simplified().isEmpty()) {
         return {};

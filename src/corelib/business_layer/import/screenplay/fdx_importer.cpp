@@ -1,6 +1,6 @@
 #include "fdx_importer.h"
 
-#include "import_options.h"
+#include "screenlay_import_options.h"
 
 #include <business_layer/model/screenplay/text/screenplay_text_block_parser.h>
 #include <business_layer/model/screenplay/text/screenplay_text_model_text_item.h>
@@ -22,7 +22,7 @@
 namespace BusinessLayer
 {
 
-AbstractImporter::Documents FdxImporter::importDocuments(const ImportOptions& _options) const
+AbstractScreenplayImporter::Documents FdxImporter::importDocuments(const ScreenplayImportOptions& _options) const
 {
     //
     // Открываем файл
@@ -130,7 +130,7 @@ AbstractImporter::Documents FdxImporter::importDocuments(const ImportOptions& _o
     return documents;
 }
 
-QVector<AbstractImporter::Screenplay> FdxImporter::importScreenplays(const ImportOptions& _options) const
+QVector<AbstractScreenplayImporter::Screenplay> FdxImporter::importScreenplays(const ScreenplayImportOptions& _options) const
 {
     Screenplay result;
     result.name = QFileInfo(_options.filePath).completeBaseName();

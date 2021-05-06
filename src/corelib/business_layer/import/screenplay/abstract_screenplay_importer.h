@@ -8,15 +8,15 @@
 namespace BusinessLayer
 {
 
-struct ImportOptions;
+struct ScreenplayImportOptions;
 
 /**
  * @brief Базовый класс для реализации импортера документов
  */
-class CORE_LIBRARY_EXPORT AbstractImporter
+class CORE_LIBRARY_EXPORT AbstractScreenplayImporter
 {
 public:
-    virtual ~AbstractImporter() = default;
+    virtual ~AbstractScreenplayImporter() = default;
 
     /**
      * @brief Вспомогательные структуры для хранения данных импортируемых документов
@@ -36,7 +36,7 @@ public:
     /**
      * @brief Импорт докуметов (всех, кроме сценариев)
      */
-    virtual Documents importDocuments(const ImportOptions& _options) const = 0;
+    virtual Documents importDocuments(const ScreenplayImportOptions& _options) const = 0;
 
     /**
      * @brief Вспомогательная структура для хранения данных импортированного сценария
@@ -52,7 +52,7 @@ public:
     /**
      * @brief Импорт сценариев из заданного документа
      */
-    virtual QVector<Screenplay> importScreenplays(const ImportOptions& _options) const = 0;
+    virtual QVector<Screenplay> importScreenplays(const ScreenplayImportOptions& _options) const = 0;
 };
 
 } // namespace BusinessLayer
